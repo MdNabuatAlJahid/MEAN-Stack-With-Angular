@@ -1,0 +1,28 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "MEAN Stack Angular",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdNabuatAlJahid/MEAN-Stack-With-Angular.git"
+  },
+  "keywords": [
+    "MEAN",
+    "Stack",
+    "Angular",
+    "Applicaion"
+  ],
+  "author": "Md Nabuat Al Jahid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MdNabuatAlJahid/MEAN-Stack-With-Angular/issues"
+  },
+  "homepage": "https://github.com/MdNabuatAlJahid/MEAN-Stack-With-Angular#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
