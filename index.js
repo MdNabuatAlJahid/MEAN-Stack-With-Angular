@@ -3,7 +3,9 @@ const app = express();
 const port = 8080;
 const mongoose = require("mongoose");
 const config = require("./config/database");
+const path = require("path");
 
+//database connection
 mongoose.Promise = global.Promise;
 mongoose.connect(
   config.uri,
@@ -17,8 +19,10 @@ mongoose.connect(
   }
 );
 
+app.use(express.static(__dirname + "/blog/dist"));
+
 app.get("*", (req, res) => {
-  res.send("Hello world");
+  res.sendFile(path.join(__dirname + "/blog/dist/blog/index.html"));
 });
 
 app.listen(port, () => {
