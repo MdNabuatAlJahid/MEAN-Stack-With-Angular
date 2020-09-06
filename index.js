@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const port = 8080;
-const mongoose = require("mongoose");
-const config = require("./config/database");
 const path = require("path");
+const config = require("./config/database");
+const mongoose = require("mongoose");
 
 //database connection
 mongoose.Promise = global.Promise;
