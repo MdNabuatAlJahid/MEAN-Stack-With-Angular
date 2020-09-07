@@ -1,0 +1,49 @@
+<h1 class="page-header">Register Page</h1>
+
+<!-- Registration Form -->
+<form [formGroup]="form" (submit)="onRegisterSubmit()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Enter email"
+      formControlName="email"
+    />
+    <ul class="help-block">
+      <li
+        *ngIf="
+          form.controls.email.errors?.required && form.controls.email.dirty
+        "
+      >
+        This field is required
+      </li>
+    </ul>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      placeholder="Password"
+      formControlName="password"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword2">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword2"
+      placeholder="Password"
+      formControlName="confirm"
+    />
+  </div>
+
+  <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+    Submit
+  </button>
+</form>
