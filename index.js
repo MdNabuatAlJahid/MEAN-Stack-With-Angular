@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
+const router = express.Router();
 const port = 8080;
-const path = require("path");
-const config = require("./config/database");
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); //Mongoose Config
+const config = require("./config/database"); //Mongoose Config
+const path = require("path"); //NodeJS Package for file paths
+const authentication = require("./routes/authentication")(router);
 
 //database connection
 mongoose.Promise = global.Promise;
@@ -19,12 +21,16 @@ mongoose.connect(
   }
 );
 
+//Provide static directory for frontend
 app.use(express.static(__dirname + "/blog/dist"));
+app.use("/authentication", authentication);
 
+//Connect server to Anguler Index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/blog/dist/blog/index.html"));
 });
 
+//Start Server: Listening on port
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
