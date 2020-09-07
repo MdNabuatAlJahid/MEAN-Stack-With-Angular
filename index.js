@@ -6,6 +6,7 @@ const mongoose = require("mongoose"); //Mongoose Config
 const config = require("./config/database"); //Mongoose Config
 const path = require("path"); //NodeJS Package for file paths
 const authentication = require("./routes/authentication")(router);
+const bodyParser = require("body-parser");
 
 //database connection
 mongoose.Promise = global.Promise;
@@ -21,7 +22,11 @@ mongoose.connect(
   }
 );
 
-//Provide static directory for frontend
+//Provide static directory for frontend (middleware)
+// parse application
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 app.use(express.static(__dirname + "/blog/dist"));
 app.use("/authentication", authentication);
 

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -7,5 +8,5 @@ const userSchema = new Schema({
   password: { type: String, required: true },
 });
 
-module.exports = mongoose.set("useCreateIndex", true);
-mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
+mongoose.set("useCreateIndex", true);
