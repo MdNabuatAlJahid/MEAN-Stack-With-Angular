@@ -1,0 +1,13 @@
+<h1>Table using JSON Server API</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let col of columns">{{ col }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events">
+      <td *ngFor="let col of index">{{ event[col] }}</td>
+    </tr>
+  </tbody>
+</table>

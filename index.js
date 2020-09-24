@@ -32,6 +32,7 @@ app.use("/authentication", authentication);
 
 //Connect server to Anguler Index.html
 app.get("*", (req, res) => {
+  let result = "";
   res.sendFile(path.join(__dirname + "/blog/dist/blog/index.html"));
 });
 
