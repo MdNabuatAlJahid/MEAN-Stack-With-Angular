@@ -11,7 +11,7 @@ export class RestService {
   params = new HttpParams();
   param = this.params.append('limit', '5');
   constructor(private http: HttpClient) {}
-  getEvent(): Observable<Event[]> {
+  getEvent(limits): Observable<Event[]> {
     return this.http.get<Event[]>(this.url, { params: this.param });
   }
 }
